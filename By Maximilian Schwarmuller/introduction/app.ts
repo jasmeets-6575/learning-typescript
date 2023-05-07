@@ -1,16 +1,30 @@
-function add(n1: number, n2: number, showResult: boolean, phrase: string) {
-  const result = n1 + n2;
-  if (showResult) {
-    console.log(phrase + result);
-  } else {
+type Combinable = number | string
+
+function combine(
+    input1: Combinable,
+    input2: Combinable,
+    resultConversion: 'as-number' | 'as-text'
+  ) {
+    let result;
+    if (typeof input1 === 'number' && typeof input2 === 'number' || resultConversion === 'as-number') {
+      result = +input1 + +input2;
+    } else {
+      result = input1.toString() + input2.toString();
+    }
     return result;
+    // if (resultConversion === 'as-number') {
+    //   return +result;
+    // } else {
+    //   return result.toString();
+    // }
   }
-
-  return n1 + n2;
-}
-const num1 = 2;
-const num2 = 5;
-const printResult = true;
-const resultPhrase = "Result is : ";
-
-add(num1, num2, printResult, resultPhrase);
+  
+  const combinedAges = combine(30, 26, 'as-number');
+  console.log(combinedAges);
+  
+  const combinedStringAges = combine('30', '26', 'as-number');
+  console.log(combinedStringAges);
+  
+  const combinedNames = combine('Max', 'Anna', 'as-text');
+  console.log(combinedNames);
+  
