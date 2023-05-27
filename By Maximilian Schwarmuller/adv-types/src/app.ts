@@ -31,9 +31,21 @@ function add(a: Combinable, b: Combinable) {
   return a + b;
 }
 
-const result = add("john","cena")
-result.split(" ")
-console.log(result);
+const result = add("john", "cena");
+result.split(" ");
+
+const fetchedUserData = {
+  id: "u1",
+  name: "John",
+  job: { title: "CEO", desc: "My own company" },
+};
+
+console.log(fetchedUserData?.job?.title);
+
+const userInput = "";
+
+const stored = userInput ?? "DEFAULT";
+console.log(stored);
 
 // type UnknownEmployee = Employee | Admin;
 
