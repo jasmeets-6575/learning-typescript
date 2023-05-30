@@ -1,5 +1,5 @@
 import React, { FormEvent, useRef } from "react";
-import "./ToDoList"
+import "./ToDoList";
 
 interface NewTodoProps {
   onAddTodo: (todoText: string) => void;

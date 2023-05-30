@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./ToDoList"
+import "./ToDoList";
 
 interface TodoListProps {
   items: { id: string; text: string }[];
   onDelete: (id: string) => void;
 }
 const TodoList: React.FC<TodoListProps> = ({ items, onDelete }) => {
-
   return (
     <ul>
       {items.map((todo) => (
