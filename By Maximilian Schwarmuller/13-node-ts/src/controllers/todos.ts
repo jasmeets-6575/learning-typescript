@@ -1,6 +1,5 @@
 import { RequestHandler } from "express";
 import { Todo } from "../models/todo";
-import { todo } from "node:test";
 
 const TODOS: Todo[] = [];
 
