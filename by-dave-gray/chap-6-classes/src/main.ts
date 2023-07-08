@@ -112,5 +112,4 @@ MyBands.data = ["Neil Young", "Led Zep"];
 console.log(MyBands.data);
 MyBands.data = [...MyBands.data, "ZZ Top"];
 console.log(MyBands.data);
-// MyBands.data = ["Van Halen", 5150];
-// must be string data
+// MyBands.data = ["Van Halen", 5150]; // must be string data
