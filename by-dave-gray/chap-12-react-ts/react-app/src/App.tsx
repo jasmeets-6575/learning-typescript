@@ -1,8 +1,4 @@
-import Counter from "./components/Counter";
-import Heading from "./components/Heading";
-import List from "./components/List";
-import Section from "./components/Section";
-
+import { Counter, Heading, List, Section } from "./components";
 import { useState } from "react";
 
 function App() {
