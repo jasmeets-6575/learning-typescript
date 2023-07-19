@@ -9,7 +9,11 @@ function App() {
   const [count, setCount] = useState<number>(0);
   const [user, setUser] = useState<User[] | null>(null);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    console.log("mounting");
+    console.log("User:", user);
+    return () => console.log("unmounting");
+  }, [user]);
 
   return (
     <>
