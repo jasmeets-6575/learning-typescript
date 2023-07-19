@@ -1,9 +1,11 @@
-import "./App.css";
+import Heading from "./components/Heading";
+import Section from "./components/Section";
 
 function App() {
   return (
     <>
-      <div>hello world</div>
+      <Heading title="home page" />
+      <Section>This is my section</Section>
     </>
   );
 }
