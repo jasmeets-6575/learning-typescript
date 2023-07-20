@@ -1,5 +1,11 @@
 import { ReactNode, useReducer, ChangeEvent } from "react";
+const initState = { count: 0, text: "" };
 
+const enum REDUCER_ACTION_TYPE {
+  INCREMENT,
+  DECREMENT,
+  NEW_INPUT,
+}
 const reducer = (
   state: typeof initState,
   action: ReducerAction
