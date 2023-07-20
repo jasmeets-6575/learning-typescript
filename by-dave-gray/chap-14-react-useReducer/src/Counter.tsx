@@ -31,7 +31,6 @@ type ChildrenType = {
 };
 const Counter = ({ children }: ChildrenType) => {
   const [state, dispatch] = useReducer(reducer, initState);
-<<<<<<< HEAD
   const increment = () => dispatch({ type: REDUCER_ACTION_TYPE.INCREMENT });
   const decrement = () => dispatch({ type: REDUCER_ACTION_TYPE.DECREMENT });
   const handleTextInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -40,8 +39,6 @@ const Counter = ({ children }: ChildrenType) => {
       payload: e.target.value,
     });
   };
-=======
->>>>>>> 60890743652507f3cc509e4439356debb11d0e37
   return (
     <>
       <h1>{children(state.count)}</h1>
