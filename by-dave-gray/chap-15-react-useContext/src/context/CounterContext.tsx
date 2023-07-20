@@ -1,8 +1,7 @@
 import {
-  ReactNode,
-  ChangeEvent,
   createContext,
   useReducer,
+  ChangeEvent,
   ReactElement,
   useCallback,
   useContext,
@@ -13,7 +12,7 @@ type StateType = {
   text: string;
 };
 
-export const initState: StateType = { count: 0, text: "" };
+const initState: StateType = { count: 0, text: "" };
 
 const enum REDUCER_ACTION_TYPE {
   INCREMENT,
@@ -38,6 +37,7 @@ const reducer = (state: StateType, action: ReducerAction): StateType => {
       throw new Error();
   }
 };
+
 const useCounterContext = (initState: StateType) => {
   const [state, dispatch] = useReducer(reducer, initState);
 
@@ -57,6 +57,7 @@ const useCounterContext = (initState: StateType) => {
       payload: e.target.value,
     });
   }, []);
+
   return { state, increment, decrement, handleTextInput };
 };
 
@@ -73,12 +74,10 @@ export const CounterContext =
   createContext<UseCounterContextType>(initContextState);
 
 type ChildrenType = {
-  children?: ReactElement | undefined;
+  children?: ReactElement | ReactElement[] | undefined;
 };
-export const CounterProvider = ({
-  children,
-  ...initState
-}: ChildrenType & StateType): ReactElement => {
+
+export const CounterProvider = ({ children }: ChildrenType): ReactElement => {
   return (
     <CounterContext.Provider value={useCounterContext(initState)}>
       {children}
@@ -86,12 +85,13 @@ export const CounterProvider = ({
   );
 };
 
-type useCounterHookType = {
+type UseCounterHookType = {
   count: number;
   increment: () => void;
   decrement: () => void;
 };
-export const useCounter = (): useCounterHookType => {
+
+export const useCounter = (): UseCounterHookType => {
   const {
     state: { count },
     increment,
