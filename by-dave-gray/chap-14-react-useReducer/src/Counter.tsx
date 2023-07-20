@@ -6,6 +6,10 @@ const enum REDUCER_ACTION_TYPE {
   DECREMENT,
   NEW_INPUT,
 }
+type ReducerAction = {
+  type: REDUCER_ACTION_TYPE;
+  payload?: string;
+};
 const reducer = (
   state: typeof initState,
   action: ReducerAction
@@ -26,6 +30,7 @@ type ChildrenType = {
   children: (num: number) => ReactNode;
 };
 const Counter = ({ children }: ChildrenType) => {
+  const [state, dispatch] = useReducer(reducer, initState);
   return (
     <>
       <h1>{children(state.count)}</h1>
