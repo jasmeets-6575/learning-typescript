@@ -8,6 +8,7 @@ type PropsType = {
   REDUCER_ACTIONS: ReducerActionType;
   inCart: boolean;
 };
+
 const Product = ({
   product,
   dispatch,
@@ -34,6 +35,22 @@ const Product = ({
       <button onClick={onAddToCart}>Add to Cart</button>
     </article>
   );
-
   return content;
 };
+
+function areProductsEqual(
+  { product: prevProduct, inCart: prevInCart }: PropsType,
+  { product: nextProduct, inCart: nextInCart }: PropsType
+) {
+  return (
+    Object.keys(prevProduct).every((key) => {
+      return (
+        prevProduct[key as keyof ProductType] ===
+        nextProduct[key as keyof ProductType]
+      );
+    }) && prevInCart === nextInCart
+  );
+}
+const MemoizedProduct = memo<typeof Product>(Product, areProductsEqual);
+
+export default MemoizedProduct;
